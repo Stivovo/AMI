@@ -1,0 +1,191 @@
+<manifest>
+  <namespace prefix:android uri: http://schemas.android.com/apk/res/android
+    <manifest android:installLocation=0 android:versionCode=945 android:versionName=9.434.14 platformBuildVersionCode=27 package=com.supercell.clashofclans platformBuildVersionName=8.1.0>
+      <uses-sdk android:minSdkVersion=15 android:targetSdkVersion=26>
+      </uses-sdk>
+
+      <permission android:name=com.supercell.clashofclans.permission.C2D_MESSAGE android:protectionLevel=0x2>
+      </permission>
+
+      <uses-permission android:name=com.supercell.clashofclans.permission.C2D_MESSAGE>
+      </uses-permission>
+
+      <uses-permission android:name=com.google.android.c2dm.permission.RECEIVE>
+      </uses-permission>
+
+      <uses-permission android:name=com.android.vending.BILLING>
+      </uses-permission>
+
+      <uses-feature android:glEsVersion=0x20000 android:required=true>
+      </uses-feature>
+
+      <uses-feature android:name=android.hardware.screen.landscape android:required=true>
+      </uses-feature>
+
+      <uses-feature android:name=android.hardware.touchscreen.multitouch android:required=true>
+      </uses-feature>
+
+      <uses-feature android:name=android.hardware.touchscreen.multitouch.distinct android:required=false>
+      </uses-feature>
+
+      <uses-permission android:name=android.permission.INTERNET>
+      </uses-permission>
+
+      <uses-permission android:name=android.permission.ACCESS_NETWORK_STATE>
+      </uses-permission>
+
+      <uses-permission android:name=android.permission.WAKE_LOCK>
+      </uses-permission>
+
+      <uses-permission android:name=android.permission.CHANGE_WIFI_STATE>
+      </uses-permission>
+
+      <uses-permission android:name=android.permission.ACCESS_WIFI_STATE>
+      </uses-permission>
+
+      <supports-screens android:smallScreens=true android:normalScreens=true android:xlargeScreens=true android:largeScreens=true>
+      </supports-screens>
+
+      <uses-permission android:name=android.permission.WRITE_EXTERNAL_STORAGE>
+      </uses-permission>
+
+      <uses-permission android:name=android.permission.READ_EXTERNAL_STORAGE>
+      </uses-permission>
+
+      <application android:allowBackup=true android:icon=@0x7f0200a6 android:label=@0x7f070098 android:backupAgent=com.supercell.titan.PreferencesBackupAgent android:supportsRtl=true>
+        <meta-data android:name=com.google.android.gms.games.APP_ID android:value=@0x7f0700a6>
+        </meta-data>
+
+        <meta-data android:name=com.google.android.gms.version android:value=@0x7f080008>
+        </meta-data>
+
+        <meta-data android:name=com.facebook.sdk.ApplicationId android:value=@0x7f0700ac>
+        </meta-data>
+
+        <meta-data android:name=com.google.android.backup.api_key android:value=@0x7f0700a8>
+        </meta-data>
+
+        <receiver android:name=com.supercell.clashofclans.TimeAlarm>
+        </receiver>
+
+        <receiver android:name=com.google.android.gcm.GCMBroadcastReceiver android:permission=com.google.android.c2dm.permission.SEND>
+          <intent-filter>
+            <action android:name=com.google.android.c2dm.intent.RECEIVE>
+            </action>
+
+            <action android:name=com.google.android.c2dm.intent.REGISTRATION>
+            </action>
+
+            <category android:name=com.supercell.clashofclans>
+            </category>
+
+          </intent-filter>
+
+        </receiver>
+
+        <service android:name=com.supercell.clashofclans.GCMIntentService>
+        </service>
+
+        <activity android:name=com.supercell.clashofclans.GameApp android:launchMode=2 android:label=@0x7f070098 android:screenOrientation=6 android:theme=@0x1030007 android:configChanges=0x4f0 android:windowSoftInputMode=0x1 android:resizeableActivity=false>
+          <intent-filter>
+            <action android:name=android.intent.action.MAIN>
+            </action>
+
+            <category android:name=android.intent.category.LAUNCHER>
+            </category>
+
+          </intent-filter>
+
+          <intent-filter>
+            <action android:name=android.intent.action.VIEW>
+            </action>
+
+            <category android:name=android.intent.category.DEFAULT>
+            </category>
+
+            <category android:name=android.intent.category.BROWSABLE>
+            </category>
+
+            <data android:scheme=clashofclans>
+            </data>
+
+          </intent-filter>
+
+          <intent-filter android:autoVerify=true>
+            <action android:name=android.intent.action.VIEW>
+            </action>
+
+            <category android:name=android.intent.category.DEFAULT>
+            </category>
+
+            <category android:name=android.intent.category.BROWSABLE>
+            </category>
+
+            <data android:scheme=http android:host=link.clashofclans.com>
+            </data>
+
+            <data android:scheme=https android:host=link.clashofclans.com>
+            </data>
+
+          </intent-filter>
+
+        </activity>
+
+        <receiver android:name=com.mobileapptracker.Tracker android:exported=true>
+          <intent-filter>
+            <action android:name=com.android.vending.INSTALL_REFERRER>
+            </action>
+
+          </intent-filter>
+
+        </receiver>
+
+        <service android:name=org.OpenUDID.OpenUDID_service>
+          <intent-filter>
+            <action android:name=org.OpenUDID.GETUDID>
+            </action>
+
+          </intent-filter>
+
+        </service>
+
+        <meta-data android:name=android.max_aspect android:value=128.05>
+        </meta-data>
+
+        <provider android:name=com.helpshift.support.providers.HelpshiftFileProvider android:exported=false android:grantUriPermissions=true android:authorities=com.supercell.clashofclans.helpshift.fileprovider>
+          <meta-data android:name=android.support.FILE_PROVIDER_PATHS android:resource=@0x7f060000>
+          </meta-data>
+
+        </provider>
+
+        <activity android:theme=@0x7f0b000c android:name=com.helpshift.support.activities.ParentActivity android:launchMode=1>
+        </activity>
+
+        <activity android:theme=@0x7f0b00f5 android:name=com.helpshift.support.HSReview android:configChanges=0x480>
+        </activity>
+
+        <activity android:theme=@0x7f0b01af android:name=com.facebook.FacebookActivity android:configChanges=0x5b0>
+        </activity>
+
+        <activity android:name=com.facebook.CustomTabMainActivity>
+        </activity>
+
+        <meta-data android:name=aia-compat-api-min-version android:value=1>
+        </meta-data>
+
+        <provider android:name=com.facebook.internal.FacebookInitProvider android:exported=false android:authorities=com.supercell.clashofclans.FacebookInitProvider>
+        </provider>
+
+        <activity android:theme=@0x1030010 android:name=com.google.android.gms.common.api.GoogleApiActivity android:exported=false>
+        </activity>
+
+        <meta-data android:name=android.arch.lifecycle.VERSION android:value=27.0.0-SNAPSHOT>
+        </meta-data>
+
+      </application>
+
+    </manifest>
+
+  </namespace>
+</manifest>
+

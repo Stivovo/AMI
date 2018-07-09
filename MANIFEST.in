@@ -1,0 +1,24 @@
+include README.md setup.cfg CMakeLists.txt
+
+# Examples
+recursive-include examples *.py
+
+# Tools
+recursive-include tools *
+
+# AMI Sources
+recursive-include src *.cpp *.h *.hpp *.in
+recursive-include include *.h *.hpp *.in
+
+recursive-include third-party *
+recursive-include cmake *
+
+# Bindings
+recursive-include bindings *.cpp *.hpp *.h *.txt
+prune bindings/python/build
+
+recursive-include res_values *
+
+# Global exclude
+recursive-exclude *.egg-info *.so
+
