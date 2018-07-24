@@ -1,4 +1,4 @@
-Android Manifest Information
+Android Manifest Inspector
 ============================
 
 AMI is a library that aims to provide an user friend API to deal with ``AndroidManifest.xml``. Core is writting in C++ and Python binding are provided.
