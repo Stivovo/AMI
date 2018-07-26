@@ -89,6 +89,29 @@ class AMI_API Service {
   XML::Element* element_{nullptr};
 };
 
+
+class AMI_API Application {
+
+  public:
+  Application(void);
+  Application(const XML::Element& e);
+
+  Application(const Application&);
+  Application& operator=(const Application&);
+
+  std::string cls(void) const;
+  bool is_debuggable(void) const;
+  std::string process(void) const;
+  std::string backup_agent(void) const;
+
+  operator bool() const;
+
+  AMI_API friend std::ostream& operator<<(std::ostream& os, const Application& m);
+
+  private:
+  XML::Element* element_{nullptr};
+};
+
 class AMI_API BroadcastReceiver {
   public:
   BroadcastReceiver(void) = delete;
@@ -131,6 +154,7 @@ class AMI_API Manifest {
   services_list_t   services(void) const;
   activities_list_t activities(void) const;
   receivers_list_t  receivers(void) const;
+  Application       application(void) const;
 
   XML::Manifest&       xml(void);
   const XML::Manifest& xml(void) const;

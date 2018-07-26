@@ -59,6 +59,7 @@ set(AMI_SOURCE_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/src/XML.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/PrettyPrinter.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/xml_search.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/Application.cpp
 )
 
 set(AMI_PUBLIC_INCLUDE_DIR

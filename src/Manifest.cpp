@@ -148,6 +148,16 @@ Manifest::receivers_list_t Manifest::receivers(void) const {
 }
 
 
+Application  Manifest::application(void) const {
+  XML::const_elements_t br = this->pimpl_->manifest().find_elements("application", true);
+  if (br.size() > 0) {
+    return *br[0];
+  }
+  return {};
+
+}
+
+
 Manifest& Manifest::operator=(const Manifest& other) {
   if (*this and this != &other) {
     this->pimpl_.reset(new details::AndroidManifestImpl{*other.pimpl_});

@@ -80,6 +80,27 @@ PYBIND11_MODULE(pyAMI, ami_module) {
         });
 
 
+  py::class_<Application>(ami_module, "Application", "Android Application representation")
+    .def_property_readonly("cls",
+        &Application::cls)
+
+    .def_property_readonly("process",
+        &Application::process)
+
+    .def_property_readonly("backup_agent",
+        &Application::backup_agent)
+
+    .def_property_readonly("is_debuggable",
+        &Application::is_debuggable)
+
+    .def("__str__",
+        [] (const Application& app) {
+          std::ostringstream oss;
+          oss << app;
+          return oss.str();
+        });
+
+
   py::class_<Manifest>(ami_module, "Manifest", "Android Manifest representation")
     .def_static("open",
         [] (const std::string& path) -> py::object {
@@ -111,6 +132,15 @@ PYBIND11_MODULE(pyAMI, ami_module) {
 
     .def_property_readonly("receivers",
         &Manifest::receivers)
+
+    .def_property_readonly("application",
+        [] (const Manifest& m) -> py::object {
+          Application app = m.application();
+          if (app) {
+            return py::cast(app);
+          }
+          return py::none();
+        })
 
     .def("__bool__",
         [] (const Manifest& manifest) {

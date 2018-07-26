@@ -68,6 +68,11 @@ class TestBasic(TestCase):
         services = manifest.services
         self.assertEqual(len(services), 13)
 
+        app = manifest.application
+        self.assertIsNotNone(app)
+
+        self.assertEqual(app.cls, ".NetflixApplication")
+
 
 
 

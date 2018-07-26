@@ -1,0 +1,946 @@
+<manifest>
+  <namespace prefix:android uri: *http://schemas.android.com/apk/res/android
+    <manifest android:versionCode=27728 android:versionName=6.3.0 build 27728 package=com.netflix.mediaclient android:installLocation=0>
+      <uses-sdk android:minSdkVersion=21 android:targetSdkVersion=27>
+      </uses-sdk>
+
+      <uses-permission android:name=com.android.vending.BILLING>
+      </uses-permission>
+
+      <supports-screens android:smallScreens=true android:normalScreens=true android:xlargeScreens=true android:largeScreens=true>
+      </supports-screens>
+
+      <uses-feature android:name=android.hardware.bluetooth android:required=false>
+      </uses-feature>
+
+      <uses-feature android:name=android.hardware.telephony android:required=false>
+      </uses-feature>
+
+      <uses-feature android:name=android.hardware.wifi android:required=false>
+      </uses-feature>
+
+      <uses-feature android:name=android.hardware.microphone android:required=false>
+      </uses-feature>
+
+      <uses-permission android:name=4com.netflix.partner.activation.permission.CHANNEL_ID>
+      </uses-permission>
+
+      <uses-permission android:name='android.permission.ACCESS_NETWORK_STATE>
+      </uses-permission>
+
+      <uses-permission android:name=$android.permission.ACCESS_WIFI_STATE>
+      </uses-permission>
+
+      <uses-permission android:name=android.permission.BLUETOOTH>
+      </uses-permission>
+
+      <uses-permission android:name=.android.permission.CHANGE_WIFI_MULTICAST_STATE>
+      </uses-permission>
+
+      <uses-permission android:name=android.permission.INTERNET>
+      </uses-permission>
+
+      <uses-permission android:name=#android.permission.READ_PHONE_STATE>
+      </uses-permission>
+
+      <uses-permission android:name=android.permission.WAKE_LOCK>
+      </uses-permission>
+
+      <uses-permission android:name=android.permission.RECORD_AUDIO>
+      </uses-permission>
+
+      <uses-permission android:name=(android.permission.MODIFY_AUDIO_SETTINGS>
+      </uses-permission>
+
+      <uses-permission android:name=)android.permission.WRITE_EXTERNAL_STORAGE>
+      </uses-permission>
+
+      <uses-permission android:name=6com.google.android.gms.permission.ACTIVITY_RECOGNITION>
+      </uses-permission>
+
+      <uses-permission android:name=)com.amazon.permission.SET_FLAG_NOSOFTKEYS>
+      </uses-permission>
+
+      <uses-permission android:name=*com.google.android.c2dm.permission.RECEIVE>
+      </uses-permission>
+
+      <permission android:name=.com.netflix.mediaclient.permission.C2D_MESSAGE android:protectionLevel=0x2>
+      </permission>
+
+      <uses-permission android:name=.com.netflix.mediaclient.permission.C2D_MESSAGE>
+      </uses-permission>
+
+      <application android:name=.NetflixApplication android:icon=@0x7f100000 android:label=@0x7f120065 android:theme=@0x7f13026a android:allowBackup=false android:hardwareAccelerated=true android:largeHeap=true android:supportsRtl=true android:resizeableActivity=false>
+        <meta-data android:name=com.google.android.gms.version android:value=@0x7f0c000e>
+        </meta-data>
+
+        <meta-data android:name=android.max_aspect android:value=128.05>
+        </meta-data>
+
+        <provider android:name=o.AH android:authorities=@0x7f12054e>
+        </provider>
+
+        <activity android:theme=@0x7f13026b android:name=.ui.launch.LaunchActivity android:launchMode=2>
+        </activity>
+
+        <activity android:name=#.ui.launch.NetflixComLaunchActivity android:clearTaskOnLaunch=true android:launchMode=2 android:theme=@0x1030010 android:configChanges=0x4b0 android:noHistory=true>
+          <intent-filter android:autoVerify=true>
+            <action android:name=android.intent.action.VIEW>
+            </action>
+
+            <category android:name=android.intent.category.DEFAULT>
+            </category>
+
+            <category android:name=!android.intent.category.BROWSABLE>
+            </category>
+
+            <data android:scheme=nflx android:host=www.netflix.com android:pathPrefix=/Browse>
+            </data>
+
+          </intent-filter>
+
+          <intent-filter>
+            <action android:name=android.intent.action.VIEW>
+            </action>
+
+            <category android:name=android.intent.category.DEFAULT>
+            </category>
+
+            <category android:name=!android.intent.category.BROWSABLE>
+            </category>
+
+            <data android:scheme=http android:host=movi.es android:pathPrefix=/>
+            </data>
+
+          </intent-filter>
+
+          <intent-filter android:autoVerify=true>
+            <action android:name=android.intent.action.VIEW>
+            </action>
+
+            <category android:name=android.intent.category.DEFAULT>
+            </category>
+
+            <category android:name=!android.intent.category.BROWSABLE>
+            </category>
+
+            <data android:scheme=http android:host=www.netflix.com>
+            </data>
+
+            <data android:scheme=https android:host=www.netflix.com>
+            </data>
+
+            <data android:pathPattern=/browse>
+            </data>
+
+            <data android:pathPattern=/.*/browse>
+            </data>
+
+            <data android:pathPattern=/browse/genre/.*>
+            </data>
+
+            <data android:pathPattern=/.*/browse/genre/.*>
+            </data>
+
+            <data android:pathPattern=/browse/coming-soon>
+            </data>
+
+            <data android:pathPattern=/.*/browse/coming-soon>
+            </data>
+
+          </intent-filter>
+
+          <intent-filter android:autoVerify=true>
+            <action android:name=android.intent.action.VIEW>
+            </action>
+
+            <category android:name=android.intent.category.DEFAULT>
+            </category>
+
+            <category android:name=!android.intent.category.BROWSABLE>
+            </category>
+
+            <data android:scheme=http android:host=www.netflix.com>
+            </data>
+
+            <data android:scheme=https android:host=www.netflix.com>
+            </data>
+
+            <data android:pathPattern=/title.*>
+            </data>
+
+            <data android:pathPattern=/.*/title.*>
+            </data>
+
+          </intent-filter>
+
+          <intent-filter android:autoVerify=true>
+            <action android:name=android.intent.action.VIEW>
+            </action>
+
+            <category android:name=android.intent.category.DEFAULT>
+            </category>
+
+            <category android:name=!android.intent.category.BROWSABLE>
+            </category>
+
+            <data android:scheme=http android:host=www.netflix.com>
+            </data>
+
+            <data android:scheme=https android:host=www.netflix.com>
+            </data>
+
+            <data android:pathPattern=/watch.*>
+            </data>
+
+            <data android:pathPattern=/.*/watch.*>
+            </data>
+
+          </intent-filter>
+
+          <intent-filter android:autoVerify=true>
+            <action android:name=android.intent.action.VIEW>
+            </action>
+
+            <category android:name=android.intent.category.DEFAULT>
+            </category>
+
+            <category android:name=!android.intent.category.BROWSABLE>
+            </category>
+
+            <data android:scheme=http android:host=www.netflix.com>
+            </data>
+
+            <data android:scheme=https android:host=www.netflix.com>
+            </data>
+
+            <data android:pathPattern=/nmwatch.*>
+            </data>
+
+            <data android:pathPattern=/.*/nmwatch.*>
+            </data>
+
+          </intent-filter>
+
+          <intent-filter android:autoVerify=true>
+            <action android:name=android.intent.action.VIEW>
+            </action>
+
+            <category android:name=android.intent.category.DEFAULT>
+            </category>
+
+            <category android:name=!android.intent.category.BROWSABLE>
+            </category>
+
+            <data android:scheme=http android:host=www.netflix.com>
+            </data>
+
+            <data android:scheme=https android:host=www.netflix.com>
+            </data>
+
+            <data android:pathPattern=/search>
+            </data>
+
+            <data android:pathPattern=/search.*>
+            </data>
+
+            <data android:pathPattern=/.*/search>
+            </data>
+
+            <data android:pathPattern=/.*/search.*>
+            </data>
+
+          </intent-filter>
+
+          <intent-filter android:autoVerify=true>
+            <action android:name=android.intent.action.VIEW>
+            </action>
+
+            <category android:name=android.intent.category.DEFAULT>
+            </category>
+
+            <category android:name=!android.intent.category.BROWSABLE>
+            </category>
+
+            <data android:scheme=http android:host=www.netflix.com>
+            </data>
+
+            <data android:scheme=https android:host=www.netflix.com>
+            </data>
+
+            <data android:pathPattern=/add.*>
+            </data>
+
+            <data android:pathPattern=/.*/add.*>
+            </data>
+
+          </intent-filter>
+
+          <intent-filter android:autoVerify=true>
+            <action android:name=android.intent.action.VIEW>
+            </action>
+
+            <category android:name=android.intent.category.DEFAULT>
+            </category>
+
+            <category android:name=!android.intent.category.BROWSABLE>
+            </category>
+
+            <data android:scheme=http android:host=www.netflix.com>
+            </data>
+
+            <data android:scheme=https android:host=www.netflix.com>
+            </data>
+
+            <data android:pathPattern=/download.*>
+            </data>
+
+            <data android:pathPattern=/.*/download.*>
+            </data>
+
+          </intent-filter>
+
+          <intent-filter android:autoVerify=true>
+            <action android:name=android.intent.action.VIEW>
+            </action>
+
+            <category android:name=android.intent.category.DEFAULT>
+            </category>
+
+            <category android:name=!android.intent.category.BROWSABLE>
+            </category>
+
+            <data android:scheme=http android:host=www.netflix.com>
+            </data>
+
+            <data android:scheme=https android:host=www.netflix.com>
+            </data>
+
+            <data android:pathPattern=/sync.*>
+            </data>
+
+            <data android:pathPattern=/.*/sync.*>
+            </data>
+
+          </intent-filter>
+
+          <intent-filter android:autoVerify=true>
+            <action android:name=android.intent.action.VIEW>
+            </action>
+
+            <category android:name=android.intent.category.DEFAULT>
+            </category>
+
+            <category android:name=!android.intent.category.BROWSABLE>
+            </category>
+
+            <data android:scheme=http android:host=www.netflix.com>
+            </data>
+
+            <data android:scheme=https android:host=www.netflix.com>
+            </data>
+
+            <data android:pathPattern=/profiles.*>
+            </data>
+
+            <data android:pathPattern=/.*/profiles.*>
+            </data>
+
+          </intent-filter>
+
+          <intent-filter android:autoVerify=true>
+            <action android:name=android.intent.action.VIEW>
+            </action>
+
+            <category android:name=android.intent.category.DEFAULT>
+            </category>
+
+            <category android:name=!android.intent.category.BROWSABLE>
+            </category>
+
+            <data android:scheme=http android:host=www.netflix.com>
+            </data>
+
+            <data android:scheme=https android:host=www.netflix.com>
+            </data>
+
+            <data android:pathPattern=/mobilehelp>
+            </data>
+
+          </intent-filter>
+
+          <intent-filter android:autoVerify=true>
+            <action android:name=android.intent.action.VIEW>
+            </action>
+
+            <category android:name=android.intent.category.DEFAULT>
+            </category>
+
+            <category android:name=!android.intent.category.BROWSABLE>
+            </category>
+
+            <data android:scheme=http android:host=www.netflix.com>
+            </data>
+
+            <data android:scheme=https android:host=www.netflix.com>
+            </data>
+
+            <data android:pathPattern=/like.*>
+            </data>
+
+            <data android:pathPattern=/.*/like.*>
+            </data>
+
+            <data android:pathPattern=/dislike.*>
+            </data>
+
+            <data android:pathPattern=/.*/dislike.*>
+            </data>
+
+          </intent-filter>
+
+          <intent-filter android:autoVerify=true>
+            <action android:name=android.intent.action.VIEW>
+            </action>
+
+            <category android:name=android.intent.category.DEFAULT>
+            </category>
+
+            <category android:name=!android.intent.category.BROWSABLE>
+            </category>
+
+            <data android:scheme=http android:host=www.netflix.com android:pathPrefix=/notification>
+            </data>
+
+            <data android:scheme=https android:host=www.netflix.com android:pathPrefix=/notification>
+            </data>
+
+          </intent-filter>
+
+        </activity>
+
+        <activity android:theme=@0x7f13026b android:name=.ui.launch.UIWebViewActivity android:enabled=@0x7f050009>
+          <intent-filter>
+            <action android:name=android.intent.action.MAIN>
+            </action>
+
+            <category android:name= android.intent.category.LAUNCHER>
+            </category>
+
+          </intent-filter>
+
+        </activity>
+
+        <activity android:theme=@0x7f13026b android:name=".ui.launch.UIWebViewTabletActivity android:enabled=@0x7f05000a>
+          <intent-filter>
+            <action android:name=android.intent.action.MAIN>
+            </action>
+
+            <category android:name= android.intent.category.LAUNCHER>
+            </category>
+
+          </intent-filter>
+
+        </activity>
+
+        <activity android:name=o.uq>
+        </activity>
+
+        <activity android:name=o.um android:screenOrientation=1>
+        </activity>
+
+        <activity android:name=o.Bg>
+        </activity>
+
+        <activity android:name=o.Bf android:screenOrientation=1>
+        </activity>
+
+        <activity android:screenOrientation=1 android:label=@0x7f1203c7 android:name=o.AY android:theme=@0x7f13027d android:configChanges=0x4a0>
+        </activity>
+
+        <activity android:enabled=@0x7f050009 android:name=!.acquisition.SignupNativeActivity android:label=@0x7f1203c7 android:screenOrientation=1 android:theme=@0x7f13027e android:configChanges=0x4a0>
+        </activity>
+
+        <activity android:enabled=@0x7f050009 android:name='.acquisition.SignupNativeTabletActivity android:label=@0x7f1203c7 android:theme=@0x7f13027e android:configChanges=0x420>
+        </activity>
+
+        <activity android:screenOrientation=1 android:enabled=@0x7f050009 android:name=.acquisition.OnBoardingActivity android:theme=@0x7f13027e android:configChanges=0x4a0>
+        </activity>
+
+        <activity android:enabled=@0x7f050009 android:name=o.Ba android:label=@0x7f1203c7 android:theme=@0x7f13027d android:configChanges=0x4a0>
+        </activity>
+
+        <activity android:theme=@0x7f13026e android:name=o.Bc android:configChanges=0x4a0>
+        </activity>
+
+        <activity android:name=o.BJ android:configChanges=0x4a0>
+        </activity>
+
+        <activity android:configChanges=0x4a0 android:screenOrientation=1 android:name=o.ur android:label=@0x7f1203c4 android:windowSoftInputMode=0x4>
+        </activity>
+
+        <activity android:configChanges=0x4a0 android:enabled=@0x7f050009 android:name=o.ux android:label=@0x7f1203c4 android:windowSoftInputMode=0x4>
+        </activity>
+
+        <activity android:label=@0x7f120412 android:name=o.Aw>
+        </activity>
+
+        <activity android:label=@0x7f120412 android:name=o.Ay android:screenOrientation=1>
+        </activity>
+
+        <activity android:name=o.Av>
+        </activity>
+
+        <activity android:name=o.Au android:screenOrientation=1>
+        </activity>
+
+        <activity android:theme=@0x7f13025f android:label=@0x7f120519 android:name=o.Ar>
+        </activity>
+
+        <activity android:theme=@0x7f13025e android:label=@0x7f120519 android:name=o.Ax android:screenOrientation=1>
+        </activity>
+
+        <activity android:theme=@0x7f13025f android:label=@0x7f120519 android:name=o.AC>
+        </activity>
+
+        <activity android:theme=@0x7f13025e android:label=@0x7f120519 android:name=o.AG android:screenOrientation=1>
+        </activity>
+
+        <activity android:label=@0x7f12045d android:name=o.tE>
+        </activity>
+
+        <activity android:label=@0x7f12045d android:name=o.tI android:screenOrientation=1>
+        </activity>
+
+        <activity android:label=@0x7f12031d android:name=o.tV>
+        </activity>
+
+        <activity android:label=@0x7f12031d android:name=o.tY android:screenOrientation=1>
+        </activity>
+
+        <activity android:theme=@0x7f1300cc android:label=@0x7f12031d android:name=o.tZ>
+        </activity>
+
+        <activity android:label=@0x7f1203c6 android:name=o.uw>
+        </activity>
+
+        <activity android:label=@0x7f1203c6 android:name=o.uy android:screenOrientation=1>
+        </activity>
+
+        <activity android:name=o.Bk>
+        </activity>
+
+        <activity android:name=o.Bn android:screenOrientation=1>
+        </activity>
+
+        <activity android:theme=@0x7f13026e android:label=@0x7f1202eb android:launchMode=1 android:name=o.tr>
+          <meta-data android:name=android.app.default_searchable android:value=.ui.search.SearchActivity>
+          </meta-data>
+
+        </activity>
+
+        <activity android:name=o.tu android:label=@0x7f1202eb android:screenOrientation=1 android:launchMode=1 android:theme=@0x7f13026e>
+          <meta-data android:name=android.app.default_searchable android:value=.ui.search.SearchActivity>
+          </meta-data>
+
+        </activity>
+
+        <activity android:screenOrientation=1 android:label=@0x7f1205a0 android:name=o.ts android:launchMode=1 android:configChanges=0x480>
+        </activity>
+
+        <activity android:theme=@0x7f13026e android:name=o.se android:launchMode=1>
+          <meta-data android:name=android.app.default_searchable android:value=.ui.search.SearchActivity>
+          </meta-data>
+
+        </activity>
+
+        <activity android:theme=@0x7f13026e android:name=o.sf android:launchMode=1 android:screenOrientation=1>
+          <meta-data android:name=android.app.default_searchable android:value=.ui.search.SearchActivity>
+          </meta-data>
+
+        </activity>
+
+        <activity android:theme=@0x7f13026e android:name=o.sk android:launchMode=1>
+          <meta-data android:name=android.app.default_searchable android:value=.ui.search.SearchActivity>
+          </meta-data>
+
+        </activity>
+
+        <activity android:theme=@0x7f13026e android:name=o.sj android:launchMode=1 android:screenOrientation=1>
+          <meta-data android:name=android.app.default_searchable android:value=.ui.search.SearchActivity>
+          </meta-data>
+
+        </activity>
+
+        <activity android:theme=@0x7f13026e android:name=o.sm>
+          <meta-data android:name=android.app.default_searchable android:value=.ui.search.SearchActivity>
+          </meta-data>
+
+        </activity>
+
+        <activity android:theme=@0x7f13026e android:name=o.si android:screenOrientation=1>
+          <meta-data android:name=android.app.default_searchable android:value=.ui.search.SearchActivity>
+          </meta-data>
+
+        </activity>
+
+        <activity android:name=o.xw android:launchMode=2 android:label=@0x7f12005b android:supportsPictureInPicture=true android:theme=@0x7f13027c android:configChanges=0x40000db4 android:resizeableActivity=false>
+        </activity>
+
+        <activity android:screenOrientation=6 android:supportsPictureInPicture=true android:name=o.xm android:launchMode=1 android:theme=@0x7f13027c android:configChanges=0x40000db4>
+        </activity>
+
+        <activity android:name=.ui.player.MiniPlayerHelper android:configChanges=0x4b0 android:launchMode=1 android:theme=@0x7f13027c android:noHistory=true>
+        </activity>
+
+        <activity android:theme=@0x7f130272 android:name=.ui.diagnosis.DiagnosisActivity>
+        </activity>
+
+        <activity android:theme=@0x7f130272 android:name=o.sA android:screenOrientation=1>
+        </activity>
+
+        <activity android:name=o.wQ android:label=@0x7f1202b7 android:launchMode=1 android:theme=@0x7f13026a android:configChanges=0x480>
+        </activity>
+
+        <activity android:name=o.wZ android:label=@0x7f1202b7 android:screenOrientation=1 android:launchMode=1 android:theme=@0x7f13026a android:configChanges=0x480>
+        </activity>
+
+        <activity android:label=@0x7f120401 android:name=o.tg android:configChanges=0x480>
+        </activity>
+
+        <activity android:label=@0x7f120401 android:name=o.tf android:screenOrientation=1 android:configChanges=0x480>
+        </activity>
+
+        <activity android:screenOrientation=1 android:label=Coming soon android:name=o.sX android:launchMode=1 android:configChanges=0x480>
+        </activity>
+
+        <activity android:theme=@0x7f130272 android:label=@0x7f1203d1 android:name=o.AT>
+        </activity>
+
+        <activity android:theme=@0x7f130272 android:label=@0x7f1203d1 android:name=o.AX android:screenOrientation=1>
+        </activity>
+
+        <activity android:theme=@0x7f130272 android:label=@0x7f120352 android:name=o.AV>
+        </activity>
+
+        <activity android:theme=@0x7f130272 android:label=@0x7f120352 android:name=o.AU android:screenOrientation=1>
+        </activity>
+
+        <activity android:name=o.AS android:launchMode=1>
+          <meta-data android:name=android.app.default_searchable android:value=.ui.search.SearchActivity>
+          </meta-data>
+
+        </activity>
+
+        <activity android:name=o.AM android:launchMode=1 android:screenOrientation=1>
+          <meta-data android:name=android.app.default_searchable android:value=.ui.search.SearchActivity>
+          </meta-data>
+
+        </activity>
+
+        <activity android:name=.ui.search.SearchActivity android:launchMode=1 android:theme=@0x7f130270 android:label=@0x7f12054d android:windowSoftInputMode=0x13>
+          <intent-filter>
+            <action android:name=android.intent.action.SEARCH>
+            </action>
+
+          </intent-filter>
+
+          <meta-data android:name=android.app.searchable android:resource=@0x7f150002>
+          </meta-data>
+
+        </activity>
+
+        <activity android:name=!.ui.search.PortraitSearchActivity android:screenOrientation=1 android:launchMode=1 android:theme=@0x7f130270 android:label=@0x7f12054d android:windowSoftInputMode=0x13>
+          <intent-filter>
+            <action android:name=android.intent.action.SEARCH>
+            </action>
+
+          </intent-filter>
+
+          <meta-data android:name=android.app.searchable android:resource=@0x7f150002>
+          </meta-data>
+
+        </activity>
+
+        <activity android:label=@0x7f12024b android:launchMode=1 android:name=o.BE>
+        </activity>
+
+        <activity android:label=@0x7f12024b android:launchMode=1 android:name=o.BF android:screenOrientation=1>
+        </activity>
+
+        <activity android:name=.ui.user_theme.ThemeActivity android:configChanges=0x4a0>
+        </activity>
+
+        <activity android:theme=@0x7f130275 android:name=o.rs android:screenOrientation=1>
+          <meta-data android:name=android.app.default_searchable android:value=.ui.search.SearchActivity>
+          </meta-data>
+
+        </activity>
+
+        <activity android:theme=@0x7f130275 android:name=o.ug>
+          <meta-data android:name=android.app.default_searchable android:value=.ui.search.SearchActivity>
+          </meta-data>
+
+        </activity>
+
+        <activity android:theme=@0x7f13027a android:name=o.vZ android:launchMode=1>
+          <meta-data android:name=android.app.default_searchable android:value=.ui.search.SearchActivity>
+          </meta-data>
+
+        </activity>
+
+        <activity android:theme=@0x7f13027a android:name=o.wb android:launchMode=1>
+          <meta-data android:name=android.app.default_searchable android:value=.ui.search.SearchActivity>
+          </meta-data>
+
+        </activity>
+
+        <activity android:theme=@0x7f13026e android:label=@0x7f12031f android:name=o.vz>
+        </activity>
+
+        <activity android:theme=@0x7f13026e android:label=@0x7f12031f android:name=o.vD android:screenOrientation=1>
+        </activity>
+
+        <receiver android:name=.service.user.PartnerReceiver android:enabled=true>
+          <intent-filter>
+            <action android:name=1com.netflix.mediaclient.intent.action.USER_STATUS>
+            </action>
+
+          </intent-filter>
+
+        </receiver>
+
+        <receiver android:name=.InstallReferrerReceiver android:enabled=true android:exported=true>
+          <intent-filter>
+            <action android:name=$com.android.vending.INSTALL_REFERRER>
+            </action>
+
+          </intent-filter>
+
+        </receiver>
+
+        <receiver android:name='.ui.profiles.RestrictedProfilesReceiver>
+          <intent-filter>
+            <action android:name=-android.intent.action.GET_RESTRICTION_ENTRIES>
+            </action>
+
+          </intent-filter>
+
+        </receiver>
+
+        <receiver android:name=..service.pushnotification.NotificationReceiver android:enabled=true android:exported=true>
+          <intent-filter>
+            <action android:name=;com.netflix.mediaclient.intent.action.NOTIFICATION_CANCELED>
+            </action>
+
+            <action android:name=Ccom.netflix.mediaclient.intent.action.NOTIFICATION_BROWSER_REDIRECT>
+            </action>
+
+            <action android:name=@com.netflix.mediaclient.intent.action.NOTIFICATION_MOVIE_DETAILS>
+            </action>
+
+            <action android:name=?com.netflix.mediaclient.intent.action.NOTIFICATION_SHOW_DETAILS>
+            </action>
+
+            <action android:name=7com.netflix.mediaclient.intent.action.NOTIFICATION_IRIS>
+            </action>
+
+            <action android:name=7com.netflix.mediaclient.intent.action.NOTIFICATION_PLAY>
+            </action>
+
+          </intent-filter>
+
+        </receiver>
+
+        <receiver android:name=.ui.preapp.PAppWidgetReceiver android:enabled=true android:exported=true>
+          <intent-filter>
+            <action android:name=@com.netflix.mediaclient.intent.action.REFRESH_FROM_PREAPP_WIDGET>
+            </action>
+
+            <action android:name==com.netflix.mediaclient.intent.action.HOME_FROM_PREAPP_WIDGET>
+            </action>
+
+            <action android:name=?com.netflix.mediaclient.intent.action.PLAY_1_FROM_PREAPP_WIDGET>
+            </action>
+
+            <action android:name=?com.netflix.mediaclient.intent.action.PLAY_2_FROM_PREAPP_WIDGET>
+            </action>
+
+            <action android:name=?com.netflix.mediaclient.intent.action.PLAY_3_FROM_PREAPP_WIDGET>
+            </action>
+
+            <action android:name=Bcom.netflix.mediaclient.intent.action.DETAILS_1_FROM_PREAPP_WIDGET>
+            </action>
+
+            <action android:name=Bcom.netflix.mediaclient.intent.action.DETAILS_2_FROM_PREAPP_WIDGET>
+            </action>
+
+            <action android:name=Bcom.netflix.mediaclient.intent.action.DETAILS_3_FROM_PREAPP_WIDGET>
+            </action>
+
+          </intent-filter>
+
+        </receiver>
+
+        <receiver android:label=@0x7f120065 android:icon=@0x7f080298 android:name=(.service.pservice.PServiceWidgetProvider android:enabled=@0x7f05000b>
+          <intent-filter>
+            <action android:name=)android.appwidget.action.APPWIDGET_UPDATE>
+            </action>
+
+          </intent-filter>
+
+          <meta-data android:name=android.appwidget.provider android:resource=@0x7f150001>
+          </meta-data>
+
+        </receiver>
+
+        <receiver android:label=@0x7f120065 android:icon=@0x7f080298 android:name=!.ui.preapp.PServiceWidgetProvider android:enabled=@0x7f05000b>
+          <intent-filter>
+            <action android:name=)android.appwidget.action.APPWIDGET_UPDATE>
+            </action>
+
+          </intent-filter>
+
+          <meta-data android:name=android.appwidget.provider android:resource=@0x7f150000>
+          </meta-data>
+
+        </receiver>
+
+        <receiver android:name=.partner.PartnerInstallReceiver android:enabled=true android:exported=true>
+          <intent-filter>
+            <action android:name=Acom.netflix.mediaclient.partner.intent.action.POST_INSTALL_ACTION>
+            </action>
+
+          </intent-filter>
+
+        </receiver>
+
+        <service android:name=o.>
+        </service>
+
+        <service android:name=.service.fcm.FcmService>
+          <intent-filter>
+            <action android:name=#com.google.firebase.MESSAGING_EVENT>
+            </action>
+
+          </intent-filter>
+
+        </service>
+
+        <service android:name=.service.fcm.FcmJobService>
+          <intent-filter>
+            <action android:name=)com.firebase.jobdispatcher.ACTION_EXECUTE>
+            </action>
+
+          </intent-filter>
+
+        </service>
+
+        <service android:name=o.ar android:permission=#android.permission.BIND_JOB_SERVICE>
+        </service>
+
+        <service android:name=o.CZ android:exported=false>
+        </service>
+
+        <activity android:label=Previews android:name=o.Ad android:screenOrientation=1>
+        </activity>
+
+        <activity android:label=@0x7f1202d6 android:name=o.Bp android:screenOrientation=1 android:configChanges=0x4a0>
+        </activity>
+
+        <activity android:label=@0x7f1202d6 android:name=o.Bq android:configChanges=0x4a0>
+        </activity>
+
+        <service android:name=6com.google.firebase.messaging.FirebaseMessagingService android:exported=true>
+          <intent-filter android:priority=4294966796>
+            <action android:name=#com.google.firebase.MESSAGING_EVENT>
+            </action>
+
+          </intent-filter>
+
+        </service>
+
+        <service android:name=-com.firebase.jobdispatcher.GooglePlayReceiver android:permission=;com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE android:exported=true>
+          <intent-filter>
+            <action android:name=,com.google.android.gms.gcm.ACTION_TASK_READY>
+            </action>
+
+          </intent-filter>
+
+        </service>
+
+        <activity android:theme=@0x1030010 android:name=o. android:configChanges=0x5b0>
+        </activity>
+
+        <activity android:theme=@0x1030010 android:excludeFromRecents=true android:name=Acom.google.android.gms.auth.api.signin.internal.SignInHubActivity android:exported=false>
+        </activity>
+
+        <service android:name==com.google.android.gms.auth.api.signin.RevocationBoundService android:permission=Icom.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION android:exported=true>
+        </service>
+
+        <receiver android:name=2com.google.android.gms.analytics.AnalyticsReceiver android:enabled=true android:exported=false>
+        </receiver>
+
+        <service android:name=1com.google.android.gms.analytics.AnalyticsService android:enabled=true android:exported=false>
+        </service>
+
+        <service android:name=4com.google.android.gms.analytics.AnalyticsJobService android:permission=#android.permission.BIND_JOB_SERVICE android:enabled=true android:exported=false>
+        </service>
+
+        <activity android:theme=@0x1030010 android:name=3com.google.android.gms.common.api.GoogleApiActivity android:exported=false>
+        </activity>
+
+        <provider android:name=7android.arch.lifecycle.ProcessLifecycleOwnerInitializer android:exported=false android:multiprocess=true android:authorities=(com.netflix.mediaclient.lifecycle-trojan>
+        </provider>
+
+        <receiver android:name=9com.google.android.gms.measurement.AppMeasurementReceiver android:enabled=true android:exported=false>
+        </receiver>
+
+        <receiver android:name=Hcom.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver android:permission=#android.permission.INSTALL_PACKAGES android:enabled=true android:exported=true>
+          <intent-filter>
+            <action android:name=$com.android.vending.INSTALL_REFERRER>
+            </action>
+
+          </intent-filter>
+
+        </receiver>
+
+        <service android:name=8com.google.android.gms.measurement.AppMeasurementService android:enabled=true android:exported=false>
+        </service>
+
+        <service android:name=;com.google.android.gms.measurement.AppMeasurementJobService android:permission=#android.permission.BIND_JOB_SERVICE android:enabled=true android:exported=false>
+        </service>
+
+        <receiver android:name=2com.google.firebase.iid.FirebaseInstanceIdReceiver android:permission='com.google.android.c2dm.permission.SEND android:exported=true>
+          <intent-filter>
+            <action android:name=&com.google.android.c2dm.intent.RECEIVE>
+            </action>
+
+            <category android:name=com.netflix.mediaclient>
+            </category>
+
+          </intent-filter>
+
+        </receiver>
+
+        <receiver android:name=:com.google.firebase.iid.FirebaseInstanceIdInternalReceiver android:exported=false>
+        </receiver>
+
+        <service android:name=1com.google.firebase.iid.FirebaseInstanceIdService android:exported=true>
+          <intent-filter android:priority=4294966796>
+            <action android:name=%com.google.firebase.INSTANCE_ID_EVENT>
+            </action>
+
+          </intent-filter>
+
+        </service>
+
+        <provider android:name=1com.google.firebase.provider.FirebaseInitProvider android:exported=false android:initOrder=100 android:authorities=,com.netflix.mediaclient.firebaseinitprovider>
+        </provider>
+
+      </application>
+
+    </manifest>
+
+  </namespace>
+</manifest>
