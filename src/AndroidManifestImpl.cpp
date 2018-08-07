@@ -108,6 +108,7 @@ AndroidManifestImpl* AndroidManifestImpl::from_apk(const std::string& path) {
   zip *z = zip_open(path.c_str(), ZIP_RDONLY, &err);
 
   if (z == nullptr) {
+    std::cerr << "zip_open failed! (" << std::dec << err << ")" << std::endl;
     zip_close(z);
     return nullptr;
   }
@@ -116,6 +117,7 @@ AndroidManifestImpl* AndroidManifestImpl::from_apk(const std::string& path) {
   zip_file_t* z_android_manifest = zip_fopen(z, ANDROID_MANIFEST_FILE.c_str(), ZIP_FL_UNCHANGED);
 
   if (z_android_manifest == nullptr) {
+    //std::cerr << "zip_open failed! (" << std::dec << err << ")" << std::endl;
     zip_close(z);
     return nullptr;
   }

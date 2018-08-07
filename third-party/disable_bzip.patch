@@ -1,0 +1,29 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 69e6548..af8b33e 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -178,15 +178,15 @@ IF(ZLIB_VERSION_STRING VERSION_LESS "1.1.2")
+   MESSAGE(FATAL_ERROR "-- ZLIB version too old, please install at least v1.1.2")
+ ENDIF(ZLIB_VERSION_STRING VERSION_LESS "1.1.2")
+ 
+-FIND_PACKAGE(BZip2)
+-IF(BZIP2_FOUND)
+-  SET (HAVE_LIBBZ2 1)
+-
+-  INCLUDE_DIRECTORIES(${BZIP2_INCLUDE_DIR})
+-  SET (OPTIONAL_LIBRARY ${BZIP2_LIBRARY})
+-ELSE()
+-  MESSAGE(WARNING "-- bzip2 library not found; bzip2 support disabled")
+-ENDIF(BZIP2_FOUND)
++#FIND_PACKAGE(BZip2)
++#IF(BZIP2_FOUND)
++#  SET (HAVE_LIBBZ2 1)
++#
++#  INCLUDE_DIRECTORIES(${BZIP2_INCLUDE_DIR})
++#  SET (OPTIONAL_LIBRARY ${BZIP2_LIBRARY})
++#ELSE()
++#  MESSAGE(WARNING "-- bzip2 library not found; bzip2 support disabled")
++#ENDIF(BZIP2_FOUND)
+ 
+ IF (COMMONCRYPTO_FOUND)
+   SET (HAVE_CRYPTO 1)
