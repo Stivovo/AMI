@@ -333,8 +333,8 @@ void AndroidManifestImpl::parse<RES_XML_START_ELEMENT_TYPE>(const ManifestReader
         }
       }
       current = current->parent();
-    } while (current->parent());
-    return "";
+    } while (current and current->parent());
+    return "android"; // default value
   };
 
   XML::Element& xml_element = dynamic_cast<XML::Element&>(sr.xml_stack.back()->add(new XML::Element{element_name}));
