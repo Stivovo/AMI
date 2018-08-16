@@ -17,6 +17,7 @@
 #include <vector>
 #include <memory>
 #include <unordered_map>
+#include <string>
 
 #include <AMI/visibility.h>
 
