@@ -2,17 +2,23 @@ version: 2
 jobs:
   "py36":
     docker:
-      - image: circleci/python:3.6-stretch-browsers
+      - image: ubuntu:18.04
     steps:
       - checkout
       - run:
           command: |
             apt-get update -qq
-            apt-get install -yqq g++ cmake zlib1g-dev python-dev build-essential git
+            apt-get install -yqq cmake zlib1g-dev python-dev build-essential git software-properties-common
+            apt-get install -yqq libpython3.6 libpython3.6-dev python3.6 python3-pip
+            apt-get install -yqq g++
+            python3.6 -m pip install setuptools --upgrade
+            python3.6 -m pip install wheel
+            python3.6 -m pip install alabaster Pygments imagesize sphinx sphinx-paramlinks sphinx_rtd_theme
       - run:
           command: |
             ls -alR
-            python3 ./setup.py install --user
+            python3.6 ./setup.py install --user
+            python3.6 bdist_wheel
 
 
 workflows:
