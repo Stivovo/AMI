@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  "py36":
+  build:
     docker:
       - image: ubuntu:18.04
     steps:
@@ -21,8 +21,3 @@ jobs:
             python3.6 bdist_wheel
 
 
-workflows:
-  version: 2
-  build:
-    jobs:
-      - "py36"
