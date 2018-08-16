@@ -25,12 +25,10 @@ macro(ADD_FLAG_IF_SUPPORTED flag name)
 
   if (C_SUPPORTS_${name})
     target_compile_options(LIB_AMI_STATIC PRIVATE ${flag})
-    target_compile_options(LIB_AMI_SHARED PRIVATE ${flag})
   endif()
 
   if (CXX_SUPPORTS_${name})
     target_compile_options(LIB_AMI_STATIC PRIVATE ${flag})
-    target_compile_options(LIB_AMI_SHARED PRIVATE ${flag})
   endif()
 endmacro()
 
@@ -39,7 +37,6 @@ endmacro()
 if (MSVC)
   add_definitions(-DNOMINMAX)
   target_compile_options(LIB_AMI_STATIC PUBLIC /FIiso646.h)
-  target_compile_options(LIB_AMI_SHARED PUBLIC /FIiso646.h)
 
   if (CMAKE_BUILD_TYPE MATCHES "Debug")
     target_compile_options(LIB_AMI_STATIC PUBLIC /MTd)

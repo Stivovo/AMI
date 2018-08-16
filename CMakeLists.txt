@@ -74,7 +74,7 @@ set(AMI_PRIVATE_INCLUDE_DIR
 # Create targets
 # ==============
 add_library(LIB_AMI_STATIC STATIC ${AMI_SOURCE_FILES}) # Static one
-add_library(LIB_AMI_SHARED SHARED ${AMI_SOURCE_FILES}) # Shared one
+#add_library(LIB_AMI_SHARED SHARED ${AMI_SOURCE_FILES}) # Shared one
 
 # Include Directories
 # ===================
@@ -82,19 +82,19 @@ target_include_directories(LIB_AMI_STATIC
   PUBLIC  "${AMI_PUBLIC_INCLUDE_DIR}"
   PRIVATE "${AMI_PRIVATE_INCLUDE_DIR}")
 
-target_include_directories(LIB_AMI_SHARED
-  PUBLIC  "${AMI_PUBLIC_INCLUDE_DIR}"
-  PRIVATE "${AMI_PRIVATE_INCLUDE_DIR}")
+#target_include_directories(LIB_AMI_SHARED
+#  PUBLIC  "${AMI_PUBLIC_INCLUDE_DIR}"
+#  PRIVATE "${AMI_PRIVATE_INCLUDE_DIR}")
 
 target_compile_definitions(LIB_AMI_STATIC PRIVATE -DAMI_STATIC)
-target_compile_definitions(LIB_AMI_SHARED PRIVATE -DAMI_EXPORTS)
+#target_compile_definitions(LIB_AMI_SHARED PRIVATE -DAMI_EXPORTS)
 
 # Flags definition
 # ----------------
 include(AMICompilerFlags)
-set_property(TARGET LIB_AMI_STATIC LIB_AMI_SHARED PROPERTY CXX_STANDARD              11)
-set_property(TARGET LIB_AMI_STATIC LIB_AMI_SHARED PROPERTY CXX_STANDARD_REQUIRED     ON)
-set_property(TARGET LIB_AMI_STATIC LIB_AMI_SHARED PROPERTY POSITION_INDEPENDENT_CODE ON)
+set_property(TARGET LIB_AMI_STATIC PROPERTY CXX_STANDARD              11)
+set_property(TARGET LIB_AMI_STATIC PROPERTY CXX_STANDARD_REQUIRED     ON)
+set_property(TARGET LIB_AMI_STATIC PROPERTY POSITION_INDEPENDENT_CODE ON)
 
 include(AMIDependencies)
 
@@ -102,11 +102,6 @@ include(AMIDependencies)
 # -----------
 set_target_properties(
   LIB_AMI_STATIC
-  PROPERTIES OUTPUT_NAME AMI
-  CLEAN_DIRECT_OUTPUT 1)
-
-set_target_properties(
-  LIB_AMI_SHARED
   PROPERTIES OUTPUT_NAME AMI
   CLEAN_DIRECT_OUTPUT 1)
 
