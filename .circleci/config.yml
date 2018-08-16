@@ -16,8 +16,7 @@ jobs:
             python3.6 -m pip install alabaster Pygments imagesize sphinx sphinx-paramlinks sphinx_rtd_theme
       - run:
           command: |
-            ls -alR
             python3.6 ./setup.py install --user
-            python3.6 bdist_wheel
+            python3.6 ./setup.py bdist_wheel
 
 
