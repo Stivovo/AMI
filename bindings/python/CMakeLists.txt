@@ -3,9 +3,9 @@ include(ExternalProject)
 include(CheckCXXCompilerFlag)
 include(CheckCCompilerFlag)
 
-set(PYBIND11_VERSION 2.2.1)
-set(PYBIND11_SHA256 SHA256=53c373d7d0b0711fea96beba666a9985269dc9e43e6088ea73faaa89b07b972e)
-set(PYBIND11_URL "${THIRD_PARTY_DIRECTORY}/pybind11-${PYBIND11_VERSION}.zip" CACHE STRING "URL to the Pybind11 repo")
+set(PYBIND11_VERSION 2.2.3)
+set(PYBIND11_SHA256 SHA256=3a3b7b651afab1c5ba557f4c37d785a522b8030dfc765da26adc2ecd1de940ea)
+set(PYBIND11_URL "${THIRD_PARTY_DIRECTORY}/pybind11-${PYBIND11_VERSION}.tar.gz" CACHE STRING "URL to the Pybind11 repo")
 ExternalProject_Add(ami_pybind11
   URL               ${PYBIND11_URL}
   URL_HASH          ${PYBIND11_SHA256}

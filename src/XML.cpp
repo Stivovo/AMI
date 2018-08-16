@@ -278,6 +278,7 @@ Attribute::~Attribute(void) {
 }
 
 Attribute::Attribute(const Attribute& other) :
+  Node::Node{other},
   name_{other.name_},
   type_{other.type_},
   string_{nullptr}

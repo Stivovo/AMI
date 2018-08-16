@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 69e6548..af8b33e 100644
+index 69e6548..c6c25d7 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -178,15 +178,15 @@ IF(ZLIB_VERSION_STRING VERSION_LESS "1.1.2")
@@ -27,3 +27,90 @@ index 69e6548..af8b33e 100644
  
  IF (COMMONCRYPTO_FOUND)
    SET (HAVE_CRYPTO 1)
+@@ -230,14 +230,14 @@ IF(NOT CMAKE_SYSTEM_NAME MATCHES Linux)
+ ENDIF()
+ 
+ # Testing
+-ENABLE_TESTING()
++#ENABLE_TESTING()
+ 
+ # Targets
+ ADD_SUBDIRECTORY(lib)
+-ADD_SUBDIRECTORY(man)
+-ADD_SUBDIRECTORY(src)
+-ADD_SUBDIRECTORY(regress)
+-ADD_SUBDIRECTORY(examples)
++#ADD_SUBDIRECTORY(man)
++#ADD_SUBDIRECTORY(src)
++#ADD_SUBDIRECTORY(regress)
++#ADD_SUBDIRECTORY(examples)
+ 
+ # pkgconfig file
+ SET(prefix ${CMAKE_INSTALL_PREFIX})
+@@ -343,15 +343,15 @@ CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/cmake-zipconf.h.in ${CMAKE_CURRENT_BI
+ 
+ # for tests
+ 
+-SET(srcdir ${CMAKE_CURRENT_SOURCE_DIR}/regress)
+-SET(abs_srcdir ${CMAKE_CURRENT_SOURCE_DIR}/regress)
+-SET(top_builddir ${CMAKE_BINARY_DIR})
+-
+-CONFIGURE_FILE(regress/runtest.in ${CMAKE_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/runtest @ONLY)
+-FILE(COPY ${CMAKE_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/runtest
+-  DESTINATION ${CMAKE_BINARY_DIR}/regress
+-  FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
+-)
++#SET(srcdir ${CMAKE_CURRENT_SOURCE_DIR}/regress)
++#SET(abs_srcdir ${CMAKE_CURRENT_SOURCE_DIR}/regress)
++#SET(top_builddir ${CMAKE_BINARY_DIR})
++#
++#CONFIGURE_FILE(regress/runtest.in ${CMAKE_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/runtest @ONLY)
++#FILE(COPY ${CMAKE_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/runtest
++#  DESTINATION ${CMAKE_BINARY_DIR}/regress
++#  FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
++#)
+ 
+ 
+ # installation
+diff --git a/lib/CMakeLists.txt b/lib/CMakeLists.txt
+index 92c4bec..352b524 100644
+--- a/lib/CMakeLists.txt
++++ b/lib/CMakeLists.txt
+@@ -10,9 +10,9 @@ MACRO(GET_TARGET_PROPERTY_WITH_DEFAULT _variable _target _property _default_valu
+   IF(${_variable} STREQUAL NOTFOUND)
+     SET(${_variable} ${_default_value})
+   ENDIF()
+-  
++
+ ENDMACRO()
+-  
++
+ MACRO(CREATE_LIBTOOL_FILE _target _install_DIR)
+   GET_TARGET_PROPERTY(_target_location ${_target} LOCATION)
+   GET_TARGET_PROPERTY_WITH_DEFAULT(_target_static_lib ${_target} STATIC_LIB "")
+@@ -51,7 +51,7 @@ MACRO(CREATE_LIBTOOL_FILE _target _install_DIR)
+   FILE(APPEND ${_laname} "libdir='${CMAKE_INSTALL_PREFIX}/${_install_DIR}'\n")
+   INSTALL( FILES ${_laname} ${_soname} DESTINATION ${CMAKE_INSTALL_PREFIX}${_install_DIR})
+ ENDMACRO()
+- 
++
+ SET(LIBZIP_SOURCES
+   zip_add.c
+   zip_add_dir.c
+@@ -195,7 +195,7 @@ ENDIF()
+ 
+ IF(HAVE_COMMONCRYPTO)
+   SET(LIBZIP_OPTIONAL_FILES ${LIBZIP_OPTIONAL_FILES} zip_crypto_commoncrypto.c
+-)  
++)
+ ELSEIF(HAVE_GNUTLS)
+   SET(LIBZIP_OPTIONAL_FILES ${LIBZIP_OPTIONAL_FILES} zip_crypto_gnutls.c
+ )
+@@ -210,6 +210,7 @@ IF(HAVE_CRYPTO)
+ ENDIF()
+ 
+ ADD_LIBRARY(zip ${LIBZIP_SOURCES} ${LIBZIP_EXTRA_FILES} ${LIBZIP_OPTIONAL_FILES} ${LIBZIP_OPSYS_FILES})
++SET_TARGET_PROPERTIES(zip PROPERTIES POSITION_INDEPENDENT_CODE ON)
+ SET_TARGET_PROPERTIES(zip PROPERTIES VERSION 5.0 SOVERSION 5)
+ TARGET_LINK_LIBRARIES(zip ${ZLIB_LIBRARY} ${OPTIONAL_LIBRARY})
+ INSTALL(TARGETS zip

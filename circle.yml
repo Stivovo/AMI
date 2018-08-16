@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  "py36":
+    docker:
+      - image: circleci/python:3.6-stretch-browsers
+    steps:
+      - checkout
+      - run:
+          command: |
+            apt-get update -qq
+            apt-get install -yqq g++ cmake zlib1g-dev python-dev build-essential git
+      - run:
+          command: |
+            ls -alR
+            python3 ./setup.py install --user
+
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - "py36"
