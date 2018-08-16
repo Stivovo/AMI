@@ -15,6 +15,8 @@
 #ifndef AMI_ANDROID_MANIFEST_H_
 #define AMI_ANDROID_MANIFEST_H_
 #include <memory>
+#include <string>
+#include <vector>
 
 #include <AMI/visibility.h>
 #include <AMI/XML.hpp>
