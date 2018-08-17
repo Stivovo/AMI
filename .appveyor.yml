@@ -4,26 +4,12 @@ clone_folder: c:\projects\ami
 
 configuration: Release
 
-#clone_depth: 3
 
 platform:
 - x86
 - x64
 
 environment:
- matrix:
-    # Python 2.7
-    - PYTHON_VERSION:   "2.7"
-      PYTHON32_PATH:    "C:\\Python27"
-      PYTHON32_INCLUDE: "C:\\Python27\\include"
-      PYTHON32_BINARY:  "C:\\Python27\\python.exe"
-      PYTHON32_LIBRARY: "C:\\Python27\\libs\\python27.lib"
-      PYTHON64_PATH:    "C:\\Python27-x64"
-      PYTHON64_INCLUDE: "C:\\Python27-x64\\include"
-      PYTHON64_BINARY:  "C:\\Python27-x64\\python.exe"
-      PYTHON64_LIBRARY: "C:\\Python27-x64\\libs\\python27.lib"
-
-
     # Python 3.5
     - PYTHON_VERSION:   "3.5"
       PYTHON32_PATH:    "C:\\Python35"
@@ -70,6 +56,18 @@ install:
 
 
 build_script:
+  - appveyor DownloadFile http://zlib.net/zlib-1.2.11.tar.gz -FileName zlib-1.2.11.tar.gz
+  - 7z x zlib-1.2.11.tar.gz > NUL
+  - 7z x zlib-1.2.11.tar > NUL
+  - cd zlib-1.2.11
+  - md build
+  - cd build
+  - cmake -G %msvc% ..
+  - cmake --build . --config Release
+  - copy zconf.h ..
+  - set CMAKE_LIBRARY_PATH=%APPVEYOR_BUILD_FOLDER%\zlib-1.2.11\build\Release
+  - set CMAKE_INCLUDE_PATH=%APPVEYOR_BUILD_FOLDER%\zlib-1.2.11
+
   - python.exe ./setup.py install
   - python.exe ./setup.py bdist_wheel
   - python.exe -c "import pyAMI;print(pyAMI)"
