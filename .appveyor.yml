@@ -70,6 +70,7 @@ install:
 
 
 build_script:
+  - cd %APPVEYOR_BUILD_FOLDER%
   - python.exe ./setup.py install
   - python.exe ./setup.py bdist_wheel
   - python.exe -c "import pyAMI;print(pyAMI)"
