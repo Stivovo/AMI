@@ -9,7 +9,7 @@ platform:
 - x86
 - x64
 
-environment:
+matrix:
     # Python 3.5
     - PYTHON_VERSION:   "3.5"
       PYTHON32_PATH:    "C:\\Python35"
@@ -54,8 +54,7 @@ install:
   - python.exe -m pip install wheel
   - python.exe -m pip install --upgrade setuptools
 
-
-build_script:
+  # Install zlib
   - appveyor DownloadFile http://zlib.net/zlib-1.2.11.tar.gz -FileName zlib-1.2.11.tar.gz
   - 7z x zlib-1.2.11.tar.gz > NUL
   - 7z x zlib-1.2.11.tar > NUL
@@ -68,6 +67,8 @@ build_script:
   - set CMAKE_LIBRARY_PATH=%APPVEYOR_BUILD_FOLDER%\zlib-1.2.11\build\Release
   - set CMAKE_INCLUDE_PATH=%APPVEYOR_BUILD_FOLDER%\zlib-1.2.11
 
+
+build_script:
   - python.exe ./setup.py install
   - python.exe ./setup.py bdist_wheel
   - python.exe -c "import pyAMI;print(pyAMI)"
