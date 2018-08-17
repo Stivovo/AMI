@@ -62,7 +62,7 @@ install:
   - cd zlib-1.2.11
   - md build
   - cd build
-  - cmake -G %msvc% ..
+  - cmake -A "%CMAKE_ARCH%" ..
   - cmake --build . --config Release
   - copy zconf.h ..
   - set CMAKE_LIBRARY_PATH=%APPVEYOR_BUILD_FOLDER%\zlib-1.2.11\build\Release
